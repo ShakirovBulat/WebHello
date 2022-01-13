@@ -1,11 +1,28 @@
 ﻿@page "/hello"
+@using Data
 <h1>Hello World!</h1>
-<button class="btn btn-primary" @onclick="graph">Click me</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Group</th>
+            <th>Faculty</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var forecast in studlist)
+        {
+            <tr>
+                <td>@forecast.name</td>
+                <td>@forecast.surname</td>
+                <td>@forecast.group</td>
+                <td>@forecast.faculty</td>
+            </tr>
+        }
+    </tbody>
+</table>
 @code {
-    private void graph()
-    {
-        <NavLink class="nav-link" href="Student">
-            <span class="oi oi-home" aria-hidden="true"></span> Student
-        </NavLink>
-    }
+    public static List<Student> studlist = new List<Student>();
+
 }

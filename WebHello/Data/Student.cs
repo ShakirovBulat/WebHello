@@ -19,9 +19,11 @@ namespace WebHello.Data
             this.group = group;
             this.faculty = faculty;
         }
-        //public List<Student> GetStudents()
-        //{
-           // new Student() = { name = "tom", surname="tomov", group=326, faculty="PP" };
-        //}
+        public static List<Student> GetStudents()
+        {
+            List<Student> list = new List<Student>();
+            list.Add(new Student("Ivan", "Ivanov", 222, "abd"));
+            return list;
+        }
     }
 }
