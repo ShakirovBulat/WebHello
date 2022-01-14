@@ -1,5 +1,5 @@
 ﻿@page "/hello"
-@using Data
+@using WebHello.Data
 <h1>Hello World!</h1>
 <table class="table">
     <thead>
@@ -23,6 +23,5 @@
     </tbody>
 </table>
 @code {
-    public static List<Student> studlist = new List<Student>();
-
+    public static List<Student> studlist = Student.GetStudents();
 }

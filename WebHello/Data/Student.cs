@@ -22,7 +22,10 @@ namespace WebHello.Data
         public static List<Student> GetStudents()
         {
             List<Student> list = new List<Student>();
-            list.Add(new Student("Ivan", "Ivanov", 222, "abd"));
+            list.Add(new Student("Ivan", "Ivanov", 222, "ab"));
+            list.Add(new Student("Bulka", "Bulov", 221, "abd"));
+            list.Add(new Student("Iskander", "Iskov", 202, "a"));
+            list.Add(new Student("Andrey", "Ibanov", 321, "b"));
             return list;
         }
     }
