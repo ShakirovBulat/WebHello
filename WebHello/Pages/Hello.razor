@@ -1,7 +1,8 @@
 ﻿@page "/hello"
 @using WebHello.Data
 <h1>Hello World!</h1>
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary">Click me</button>
+
 <table class="table">
     <thead>
         <tr>
@@ -24,6 +25,5 @@
     </tbody>
 </table>
 @code {
-
     public static List<Student> studlist = Student.GetStudents();
 }
