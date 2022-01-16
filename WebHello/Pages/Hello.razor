@@ -1,29 +1,107 @@
 ﻿@page "/hello"
 @using WebHello.Data
 <h1>Hello World!</h1>
-<button class="btn btn-primary">Click me</button>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Group</th>
-            <th>Faculty</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var forecast in studlist)
-        {
+<button class="btn btn-primary" @onclick="stud">Вывести список студентов</button>
+@if (studlist == null)
+{
+    <p></p>
+}
+else
+{
+    <table class="table">
+        <thead>
             <tr>
-                <td>@forecast.name</td>
-                <td>@forecast.surname</td>
-                <td>@forecast.group</td>
-                <td>@forecast.faculty</td>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Группа</th>
+                <th>Факультет</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var forecast in studlist)
+            {
+                <tr>
+                    <td>@forecast.name</td>
+                    <td>@forecast.surname</td>
+                    <td>@forecast.group</td>
+                    <td>@forecast.faculty</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<button class="btn btn-primary" @onclick="car">Вывести список машин</button>
+@if (carlist == null)
+{
+    <p></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Топливо</th>
+                <th>Дата</th>
+                <th>Пробег</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in carlist)
+            {
+                <tr>
+                    <td>@forecast.name</td>
+                    <td>@forecast.fuel</td>
+                    <td>@forecast.date</td>
+                    <td>@forecast.mileage</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<button class="btn btn-primary" @onclick="game">Вывести список игр</button>
+@if (gamelist == null)
+{
+    <p></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Группа</th>
+                <th>Факультет</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in gamelist)
+            {
+                <tr>
+                    <td>@forecast.name</td>
+                    <td>@forecast.date</td>
+                    <td>@forecast.izdatel</td>
+                    <td>@forecast.janr</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 @code {
-    public static List<Student> studlist = Student.GetStudents();
+    public static List<Student> studlist;
+    public static List<Car> carlist;
+    public static List<Game> gamelist;
+    private void stud()
+    {
+        studlist = Student.GetStudents();
+    }
+    private void car()
+    {
+        carlist = Car.GetCar();
+    }
+    private void game()
+    {
+        gamelist = Game.GetGame();
+    }
 }
