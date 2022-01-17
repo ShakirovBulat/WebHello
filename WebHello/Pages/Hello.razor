@@ -1,12 +1,13 @@
 ﻿@page "/hello"
 @using WebHello.Data
 <h1>Hello World!</h1>
-<button class="btn btn-primary" @onclick="stud">Вывести список студентов</button>
-@if (studlist == null)
+<button class="btn btn-primary" @on="stud">Вывести список студентов</button>
+<button class="btn btn-primary" @onclick="car">Вывести список машин</button>
+<button class="btn btn-primary" @onclick="game">Вывести список игр</button>
+@if (gamelist == null && carlist == null && studlist == null)
 {
-    <p></p>
 }
-else
+else if (carlist == null && studlist == null)
 {
     <table class="table">
         <thead>
@@ -18,24 +19,19 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in studlist)
+            @foreach (var forecast in gamelist)
             {
                 <tr>
                     <td>@forecast.name</td>
-                    <td>@forecast.surname</td>
-                    <td>@forecast.group</td>
-                    <td>@forecast.faculty</td>
+                    <td>@forecast.date</td>
+                    <td>@forecast.izdatel</td>
+                    <td>@forecast.janr</td>
                 </tr>
             }
         </tbody>
     </table>
 }
-<button class="btn btn-primary" @onclick="car">Вывести список машин</button>
-@if (carlist == null)
-{
-    <p></p>
-}
-else
+else if (studlist == null && gamelist == null)
 {
     <table class="table">
         <thead>
@@ -59,12 +55,7 @@ else
         </tbody>
     </table>
 }
-<button class="btn btn-primary" @onclick="game">Вывести список игр</button>
-@if (gamelist == null)
-{
-    <p></p>
-}
-else
+else if (gamelist == null && carlist == null)
 {
     <table class="table">
         <thead>
@@ -76,13 +67,13 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in gamelist)
+            @foreach (var forecast in studlist)
             {
                 <tr>
                     <td>@forecast.name</td>
-                    <td>@forecast.date</td>
-                    <td>@forecast.izdatel</td>
-                    <td>@forecast.janr</td>
+                    <td>@forecast.surname</td>
+                    <td>@forecast.group</td>
+                    <td>@forecast.faculty</td>
                 </tr>
             }
         </tbody>
