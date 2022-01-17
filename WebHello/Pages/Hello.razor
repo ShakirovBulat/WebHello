@@ -1,7 +1,7 @@
 ﻿@page "/hello"
 @using WebHello.Data
 <h1>Hello World!</h1>
-<button class="btn btn-primary" @on="stud">Вывести список студентов</button>
+<button class="btn btn-primary" @onclick="stud">Вывести список студентов</button>
 <button class="btn btn-primary" @onclick="car">Вывести список машин</button>
 <button class="btn btn-primary" @onclick="game">Вывести список игр</button>
 @if (gamelist == null && carlist == null && studlist == null)
