@@ -86,13 +86,19 @@ else if (gamelist == null && carlist == null)
     private void stud()
     {
         studlist = Student.GetStudents();
+        carlist = null;
+        gamelist = null;
     }
     private void car()
     {
         carlist = Car.GetCar();
+        studlist = null;
+        gamelist = null;
     }
     private void game()
     {
         gamelist = Game.GetGame();
+        carlist = null;
+        studlist = null;
     }
 }
