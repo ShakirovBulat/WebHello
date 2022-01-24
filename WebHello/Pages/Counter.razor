@@ -3,27 +3,27 @@
 
 <div class="students">
     <p><b>Имя:</b></p>
-    <p><input type="text" @bind-value="studname" /></p>
+    <p><input type="text" @bind-value="name" /></p>
     <p><b>Фамилия:</b></p>
-    <p><input type="text" @bind-value="studsur" /></p>
+    <p><input type="text" @bind-value="surname" /></p>
     <p><b>Возраст:</b></p>
-    <p><input type="number" @bind-value="studyear" /></p>
+    <p><input type="number" @bind-value="group" /></p>
     <p><b>Факультет:</b></p>
-    <p><input type="text" @bind-value="studfaculty" /></p>
+    <p><input type="text" @bind-value="faculty" /></p>
 </div>
 
 <button class="btn btn-primary" @onclick="Regis">Registration</button>
 
 @code {
     public static List<Student> studlist;
-    private string studname;
-    private string studsur;
-    private int studyear;
-    private string studfaculty;
+    private string name;
+    private string surname;
+    private int group;
+    private string faculty;
 
 
     private void Regis()
     {
-        Student.AddToList(studsur, studname, studyear, studfaculty);
+        Student.AddToList(name, surname, group, faculty);
     }
 }
