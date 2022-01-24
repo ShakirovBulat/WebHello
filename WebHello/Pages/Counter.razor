@@ -1,16 +1,29 @@
-﻿@page "/counter"
+﻿@using WebHello.Data
+@page "/counter"
 
-<h1>Counter</h1>
+<div class="students">
+    <p><b>Имя:</b></p>
+    <p><input type="text" @bind-value="studname" /></p>
+    <p><b>Фамилия:</b></p>
+    <p><input type="text" @bind-value="studsur" /></p>
+    <p><b>Возраст:</b></p>
+    <p><input type="number" @bind-value="studyear" /></p>
+    <p><b>Факультет:</b></p>
+    <p><input type="text" @bind-value="studfaculty" /></p>
+</div>
 
-<p>Current count: @currentCount</p>
-
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary" @onclick="Regis">Registration</button>
 
 @code {
-    private int currentCount = 0;
+    public static List<Student> studlist;
+    private string studname;
+    private string studsur;
+    private int studyear;
+    private string studfaculty;
 
-    private void IncrementCount()
+
+    private void Regis()
     {
-        currentCount++;
+        Student.AddToList(studsur, studname, studyear, studfaculty);
     }
 }
