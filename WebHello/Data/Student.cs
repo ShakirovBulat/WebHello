@@ -7,10 +7,11 @@ namespace WebHello.Data
 {
     public class Student
     {
-        public string name;
-        public string surname;
-        public int group;
-        public string faculty;
+        public string name { get; set; }
+        public string surname { get; set; }
+        public int group { get; set; }
+        public string faculty { get; set; }
+        public static List<Student> st = new List<Student>();
 
         public Student(string name, string surname, int group, string faculty)
         {
@@ -19,14 +20,18 @@ namespace WebHello.Data
             this.group = group;
             this.faculty = faculty;
         }
+        public static void AddToList(string surnamep, string namep, int year, string facultyp)
+        {
+            Student std = new Student(surnamep, namep, year, facultyp);
+            st.Add(std);
+        }
         public static List<Student> GetStudents()
         {
-            List<Student> list = new List<Student>();
-            list.Add(new Student("Ivan", "Ivanov", 222, "ab"));
-            list.Add(new Student("Bulka", "Bulov", 221, "abd"));
-            list.Add(new Student("Iskander", "Iskov", 202, "a"));
-            list.Add(new Student("Andrey", "Ibanov", 321, "b"));
-            return list;
+            st.Add(new Student("Ivan", "Ivanov", 222, "ab"));
+            st.Add(new Student("Bulka", "Bulov", 221, "abd"));
+            st.Add(new Student("Iskander", "Iskov", 202, "a"));
+            st.Add(new Student("Andrey", "Ibanov", 321, "b"));
+            return st;
         }
     }
     public class Car
